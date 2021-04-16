@@ -13,6 +13,16 @@ function Home(props){
     const location = useLocation();
     //console.log(id, name)
 
+    const goToHome =()=> {
+        history.push({
+            pathname: '/home',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+
     const goToProduct =()=> {
         history.push({
             pathname: '/product',
@@ -22,6 +32,37 @@ function Home(props){
             }
         });
     }
+
+    const goToCart =()=> {
+        history.push({
+            pathname: '/cart',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+
+    const goToCheckout =()=> {
+        history.push({
+            pathname: '/checkout',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+
+    const goToThanks =()=> {
+        history.push({
+            pathname: '/thanks',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+    
     const globalState  = useSelector(state=>state.menu)
     const [branchItems, setdata] = useState([]);
 
@@ -45,8 +86,8 @@ function Home(props){
                 <div className="bg-primary p-3">
                     <div className="text-white">
                         <div className="title d-flex align-items-center">
-                            <a className="toggle" href="#">
-                            <span></span>
+                            <a class="toggle hc-nav-trigger hc-nav-1" href="#" role="button" aria-controls="hc-nav-1">
+                                <span></span>
                             </a>
                             <h4 className="font-weight-bold m-0 pl-5">Browse</h4>
                             <a className="text-white font-weight-bold ml-auto" data-toggle="modal" data-target="#exampleModal" href="#">Filter</a>
@@ -438,34 +479,34 @@ function Home(props){
                 <div className="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center">
                     <div className="row">
                         <div className="col selected">
-                            <a href="home.html" className="text-danger small font-weight-bold text-decoration-none">
+                            <a onClick={goToHome} href="#" className="text-danger small font-weight-bold text-decoration-none">
                                 <p className="h4 m-0"><i className="feather-home text-danger"></i></p>
-                                Home
+                                Menu
                             </a>
                         </div>
                         <div className="col">
-                            <a href="most_popular.html" className="text-dark small font-weight-bold text-decoration-none">
+                            <a onClick={goToProduct} href="#" className="text-dark small font-weight-bold text-decoration-none">
                                 <p className="h4 m-0"><i className="feather-map-pin"></i></p>
-                                Trending
+                                Product
                             </a>
                         </div>
                         <div className="col bg-white rounded-circle mt-n4 px-3 py-2">
                             <div className="bg-danger rounded-circle mt-n0 shadow">
-                                <a href="checkout.html" className="text-white small font-weight-bold text-decoration-none">
+                                <a onClick={goToCart} href="#" className="text-white small font-weight-bold text-decoration-none">
                                 <i className="feather-shopping-cart"></i>
                                 </a>
                             </div>
                         </div>
                         <div className="col">
-                            <a href="favorites.html" className="text-dark small font-weight-bold text-decoration-none">
+                            <a onClick={goToCheckout} href="#" className="text-dark small font-weight-bold text-decoration-none">
                                 <p className="h4 m-0"><i className="feather-heart"></i></p>
-                                Favorites
+                                Checkout
                             </a>
                         </div>
                         <div className="col">
-                        <a href="profile.html" className="text-dark small font-weight-bold text-decoration-none">
+                        <a onClick={goToThanks} href="#" className="text-dark small font-weight-bold text-decoration-none">
                             <p className="h4 m-0"><i className="feather-user"></i></p>
-                            Profile
+                            Finish
                         </a>
                     </div>
                     </div>

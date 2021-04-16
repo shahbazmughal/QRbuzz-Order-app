@@ -24,3 +24,56 @@
 .offer-slider {
     display: flex;
 }
+
+
+
+.hc-nav-trigger.hc-nav-1 {
+    display: block;
+}
+.hc-nav-trigger {
+    position: absolute;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: none;
+    top: 18px;
+    width: 30px;
+    min-height: 24px;
+    left: 17px;
+}
+.hc-nav-trigger span, .hc-nav-trigger span::before, .hc-nav-trigger span::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+    transition: all .2s ease;
+}
+.hc-nav-trigger span {
+    width: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+}
+.hc-nav-trigger span::before {
+    top: -10px;
+}
+.hc-nav-trigger span::before, .hc-nav-trigger span::after {
+    content: '';
+    width: 100%;
+}
+.hc-nav-trigger span, .hc-nav-trigger span::before, .hc-nav-trigger span::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+    transition: all .2s ease;
+}
+.hc-nav-trigger span::after {
+    bottom: -10px;
+}
