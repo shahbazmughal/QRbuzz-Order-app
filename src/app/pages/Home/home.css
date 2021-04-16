@@ -10,3 +10,17 @@
     padding: 100px 0 20px 0;
     line-height: 1.8;
 }
+
+.cat-slider.border-bottom {
+    display: inline-flex;
+}
+.cat-slider .cat-item {
+    width: 75px;
+    float: left;
+}
+.trending-slider {
+    display: flex;
+}
+.offer-slider {
+    display: flex;
+}
