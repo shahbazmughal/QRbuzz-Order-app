@@ -3,20 +3,21 @@ import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
 import './product.css';
 
-function Index(){
+function Product(){
 
     const history = useHistory();
-    const id = 1;
+    const id = 2;
+    const name="Product Page"
 
     const location = useLocation();
-    console.log(location.state.id, location.state.name)
+    console.log(id, name)
 
     const goToCart =()=> {
         history.push({
             pathname: '/cart',
             state: {
               id: id,
-              name:"Cart Page"
+              name:name
             }
         });
     }
@@ -24,9 +25,9 @@ function Index(){
     return (
         <div className="container">
             <div className="title"><b>Product Page</b><br />Welcome to QRBUZZ Menu</div>
-            <button onClick={goToCart}>Cart Page</button>
+            <button onClick={goToCart}>Go to Cart Page</button>
         </div>
     )
 }
 
-export default Index;
+export default Product;

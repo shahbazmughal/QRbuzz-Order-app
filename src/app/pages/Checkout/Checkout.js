@@ -3,30 +3,31 @@ import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
 import './Checkout.css';
 
-function Index(){
+function Checkout(){
 
     const history = useHistory();
-    const id = 1;
+    const id = 4;
+    const name = "Checkout Page";
 
     const location = useLocation();
-    console.log(location.state.id, location.state.name)
+    console.log(id, name)
 
     const goToHome =()=> {
         history.push({
-            pathname: '/home',
+            pathname: '/thanks',
             state: {
               id: id,
-              name:"Home Page"
+              name:name
             }
         });
     }
   
     return (
         <div className="container">
-            <div className="title"><b>Checkout Page</b><br />Welcome to QRBUZZ Menu</div>
-            <button onClick={goToHome}>Home</button>
+            <div className="title"><b>Order Checkout Page</b><br />Welcome to QRBUZZ Menu</div>
+            <button onClick={goToHome}>Go to Order Complete</button>
         </div>
     )
 }
 
-export default Index;
+export default Checkout;

@@ -1,10 +1,11 @@
 import React, {Suspense} from "react";
 import {Redirect, Route, Switch} from "react-router-dom";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
-import Index from "./pages/Home/Index";
+import Index from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
+import Complete from "./pages/Complete/Complete";
 
 
 export default function BasePage() {
@@ -16,6 +17,7 @@ export default function BasePage() {
                 <Route path="/product" component={Product}/>
                 <Route path="/cart" component={Cart}/>
                 <Route path="/checkout" component={Checkout}/>
+                <Route path="/thanks" component={Complete}/>
                 <Route path="/dashboard" component={DashboardPage}/>
                 <Redirect from="/" exact={true} to="/home"/>
             </Switch>

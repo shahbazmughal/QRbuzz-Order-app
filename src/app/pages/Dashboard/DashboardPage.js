@@ -9,7 +9,6 @@ function DashboardPage(props) {
   const id = 1;
 
   const location = useLocation();
-  console.log(location.state.id, location.state.name)
 
   const goToHome =()=> {
     history.push({

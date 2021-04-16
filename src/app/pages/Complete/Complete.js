@@ -1,32 +1,33 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
-import './home.css';
+import './Complete.css';
 
-function Index(){
+function Complete(){
 
     const history = useHistory();
-    const id = 1;
+    const id = 5;
+    const name = "Complete Page";
 
     const location = useLocation();
-    console.log(location.state.id, location.state.name)
+    console.log(id, name)
 
-    const goToProduct =()=> {
+    const goToHome =()=> {
         history.push({
-            pathname: '/product',
+            pathname: '/home',
             state: {
               id: id,
-              name:"Product Page"
+              name:name
             }
         });
     }
   
     return (
         <div className="container">
-            <div className="title"><b>Home Page</b><br />Welcome to QRBUZZ Menu</div>
-            <button onClick={goToProduct}>Product Page</button>
+            <div className="title"><b>Order Complete Page</b><br />Welcome to QRBUZZ Menu</div>
+            <button onClick={goToHome}>Go to Home</button>
         </div>
     )
 }
 
-export default Index;
+export default Complete;
