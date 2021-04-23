@@ -33,15 +33,14 @@ function Product(){
     }
   
     return (
-        
         <div className="osahan-restaurant">
             <div className="osahan-restaurant-detail">
                 <div className="p-3">
-                <div className="forgot-page">
+                    <div className="forgot-page">
                     <a className="toggle toggle-2" href="#"><span></span></a>
                     <a className="text-primary font-weight-bold" href="#" onClick={goToHome}><i className="feather-chevron-left"></i> Back</a>
                 </div>
-                <div className="pt-3">
+                    <div className="pt-3">
                     <h2 className="font-weight-bold">Conrad Chicago Restaurant</h2>
                     <p className="font-weight-light text-dark m-0">963 Madyson Drive Suite 679</p>
                     <div className="rating-wrap d-flex align-items-center mt-2">
@@ -57,7 +56,7 @@ function Product(){
                         <p className="label-rating text-muted ml-2 small"> (245 Reviews)</p>
                     </div>
                 </div>
-                <div className="pt-2">
+                    <div className="pt-2">
                     <div className="row">
                         <div className="col-6">
                             <p className="font-weight-bold m-0">Delivery</p>
@@ -71,20 +70,20 @@ function Product(){
                 </div>
                 </div>
                 <div className="bg-primary p-3">
-                <div className="d-flex align-items-center">
-                    <div className="feather_icon">
-                        <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
-                        <a href="#ratings-and-reviews" className="text-decoration-none text-dark mx-2"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                        <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
+                    <div className="d-flex align-items-center">
+                        <div className="feather_icon">
+                            <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
+                            <a href="#ratings-and-reviews" className="text-decoration-none text-dark mx-2"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
+                            <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
+                        </div>
+                        <a href="#" className="btn btn-sm btn-outline-light ml-auto">Contact</a>
                     </div>
-                    <a href="#" className="btn btn-sm btn-outline-light ml-auto">Contact</a>
-                </div>
                 </div>
             </div>
             <div className="px-3 pt-3">
                 <div className="row">
-                <h6 className="mb-4 mt-3 col-md-12">Quick Bites <small className="text-black-50">3 ITEMS</small></h6>
-                <div className="col-md-12 px-0 border-top">
+                    <h6 className="mb-4 mt-3 col-md-12">Quick Bites <small className="text-black-50">3 ITEMS</small></h6>
+                    <div className="col-md-12 px-0 border-top">
                     <div className="bg-white mb-4">
                         <div className="p-3 border-bottom gold-members">
                             <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
@@ -128,8 +127,8 @@ function Product(){
                 </div>
                 </div>
                 <div className="row">
-                <h6 className="mb-4 mt-3 col-md-12">Starters <small className="text-black-50">3 ITEMS</small></h6>
-                <div className="col-md-12 px-0 border-top">
+                    <h6 className="mb-4 mt-3 col-md-12">Starters <small className="text-black-50">3 ITEMS</small></h6>
+                    <div className="col-md-12 px-0 border-top">
                     <div className="bg-white mb-4">
                         <div className="p-3 border-bottom menu-list">
                             <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
@@ -165,8 +164,8 @@ function Product(){
                 </div>
                 </div>
                 <div className="row">
-                <h6 className="mb-4 mt-3 col-md-12">Soups <small className="text-black-50">8 ITEMS</small></h6>
-                <div className="col-md-12 px-0 border-top">
+                    <h6 className="mb-4 mt-3 col-md-12">Soups <small className="text-black-50">8 ITEMS</small></h6>
+                    <div className="col-md-12 px-0 border-top">
                     <div className="bg-white">
                         <div className="p-3 border-bottom gold-members">
                             <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
