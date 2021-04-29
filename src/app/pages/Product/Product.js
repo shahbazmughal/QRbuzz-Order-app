@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
 import './product.css';
@@ -31,10 +31,49 @@ function Product(){
             }
         });
     }
+
+    const gotoContact =()=> {
+        history.push({
+            pathname: '/contact',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+
+    const handleChange = name => event => {
+        setState({ ...state, [name]: event.target.value });
+        setValues({ ...values, [name]: event.target.value });
+    }
+
+    const [values, setValues] = React.useState({
+        count: 1,
+        count2:2
+    });
+
+    const [state, setState] = React.useState({
+        count: 1,
+        count2:2
+    });
+
+
+    const [count, setCount] = useState(1);
+    const [count2, setCount2] = useState(2);
   
     return (
         <div className="osahan-restaurant">
             <div className="osahan-restaurant-detail">
+                <div className="recepie-header">
+                    <div className="position-absolute px-3 py-4 d-flex align-items-center w-100">
+                        <a className="toggle hc-nav-trigger hc-nav-1" href="#" role="button" aria-controls="hc-nav-1"><span></span></a>
+                        <div className="d-flex ml-auto">
+                            <p className="m-0 ml-auto mr-1 recepie-feather"><a href="restaurant.html#ratings-and-reviews"><i className="feather-upload shadow bg-light rounded-circle p-2"></i></a></p>
+                            <p className="m-0 ml-auto"><a href="restaurant.html#ratings-and-reviews"><i className="feather-star shadow bg-light text-danger rounded-circle p-2"></i></a></p>
+                        </div>
+                    </div>
+                    <img src="img/trending1.png" className="img-fluid w-100" alt="Responsive image" />
+                </div>
                 <div className="p-3">
                     <div className="forgot-page">
                     <a className="toggle toggle-2" href="#"><span></span></a>
@@ -76,7 +115,7 @@ function Product(){
                             <a href="#ratings-and-reviews" className="text-decoration-none text-dark mx-2"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
                             <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                         </div>
-                        <a href="#" className="btn btn-sm btn-outline-light ml-auto">Contact</a>
+                        <a href="#" className="btn btn-sm btn-outline-light ml-auto" onClick={gotoContact}>Contact</a>
                     </div>
                 </div>
             </div>
@@ -97,24 +136,32 @@ function Product(){
                         </div>
                         <div className="p-3 border-bottom gold-members">
                             <div className="count-number float-right">
-                                <button type="button" className="btn-sm left dec btn btn-outline-secondary"> 
+                                <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => setState({...state, count:state.count-1})}> 
                                     <i className="feather-minus"></i> 
                                 </button>
-                                <input className="count-number-input" type="text" readonly="" value="1" />
-                                <button type="button" className="btn-sm right inc btn btn-outline-secondary"> 
+                                <input className="count-number-input" type="text" defaultValue={state.count} value={state.count} onChange={handleChange("count")} />
+                                <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => setState({...state, count:state.count+1})}> 
                                     <i className="feather-plus"></i> 
                                 </button>
                             </div>
                             <div className="media">
                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                            <div className="media-body">
-                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                <p className="text-muted mb-0">$600</p>
-                            </div>
+                                <div className="media-body">
+                                    <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
+                                    <p className="text-muted mb-0">$600</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-3 border-bottom gold-members">
-                            <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" readonly="" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
+                            <span className="count-number float-right">
+                                <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => setCount2(count2-1)}> 
+                                    <i className="feather-minus"></i> 
+                                </button>
+                                <input className="count-number-input" type="text" defaultValue={count2} />
+                                <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => setCount2(count2+1)}> 
+                                    <i className="feather-plus"></i> 
+                                </button>
+                            </span>
                             <div className="media">
                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
                             <div className="media-body">
@@ -141,7 +188,8 @@ function Product(){
                             </div>
                         </div>
                         <div className="p-3 border-bottom menu-list">
-                            <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" readonly="" value="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
+                            <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button>
+                            <input className="count-number-input" type="text" defaultValue="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
                             <div className="media">
                             <img src="img/starter2.jpg" alt="" className="mr-3 rounded-pill " />
                             <div className="media-body">
@@ -178,7 +226,8 @@ function Product(){
                             </div>
                         </div>
                         <div className="p-3 border-bottom gold-members">
-                            <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" readonly="" value="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
+                            <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button>
+                            <input className="count-number-input" type="text" defaultValue="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
                             <div className="media">
                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
                             <div className="media-body">

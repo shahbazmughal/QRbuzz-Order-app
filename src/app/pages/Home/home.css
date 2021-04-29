@@ -24,7 +24,9 @@
 .offer-slider {
     display: flex;
 }
-
+.osahan-home-page {
+    overflow-x: hidden;
+}
 
 
 .hc-nav-trigger.hc-nav-1 {
