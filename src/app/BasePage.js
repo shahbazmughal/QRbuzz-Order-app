@@ -10,6 +10,7 @@ import Faqs from './pages/others/Faqs';
 import Contact from './pages/others/Contact';
 import Terms from './pages/others/Terms';
 import Privacy from './pages/others/Privacy';
+import Categories from './pages/Categories/Categories';
 
 
 export default function BasePage() {
@@ -27,6 +28,7 @@ export default function BasePage() {
                 <Route path="/contact" component={Contact}/>
                 <Route path="/terms" component={Terms}/>
                 <Route path="/privacy" component={Privacy}/>
+                <Route path="/categories" component={Categories}/>
                 <Redirect from="/" exact={true} to="/home"/>
             </Switch>
         </Suspense>

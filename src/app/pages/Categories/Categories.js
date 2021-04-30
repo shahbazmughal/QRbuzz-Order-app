@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './product.css';
+import './categories.css';
 import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
 
-class Product extends React.Component {
+class Categories extends React.Component {
   render(){
     return(
         <div className="osahan-restaurant">
@@ -384,4 +384,4 @@ const Tab = props =>{
   )
 }
 
-export default Product;
+export default Categories;
