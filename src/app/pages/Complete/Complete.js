@@ -112,7 +112,7 @@ function Complete(){
                 <div className="bg-white rounded shadow mt-n5">
                 <div className="d-flex align-items-center border-bottom p-3">
                     <div className="left mr-3">
-                        <img src="img/user1.jpg" className="rounded-circle" />
+                        <img src="img/user1.jpg" className="rounded-circle profile-image" />
                     </div>
                     <div className="right">
                         <h6 className="mb-1 font-weight-bold">Gurdeep Singh <i className="feather-check-circle text-success"></i></h6>

@@ -1,10 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import './product.css';
-import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
+import PropTypes from "prop-types";
+import * as mredux from '../_redux/menuRedux';
 
-class Product extends React.Component {
+class Product extends Component {
+
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+      };
+    
+
   render(){
+
+        const { match, location, history } = this.props;
+
+        const goToHome =()=> {
+            history.push('home')
+        }
+
+        const goToCart = () => {
+            history.push('cart')
+        }
+    
+        const gotoContact = () => {
+            history.push('contact')
+        }
+
     return(
         <div className="osahan-restaurant">
             <div className="osahan-restaurant-detail">
@@ -21,7 +45,7 @@ class Product extends React.Component {
                 <div className="p-3">
                     <div className="forgot-page">
                         <a className="toggle toggle-2" href="#"><span></span></a>
-                        <a className="text-primary font-weight-bold" href="#"><i className="feather-chevron-left"></i> Back</a>
+                        <a className="text-primary font-weight-bold" href="#" onClick={goToHome}><i className="feather-chevron-left"></i> Back</a>
                     </div>
                     <div className="pt-3">
                         <h2 className="font-weight-bold">Conrad Chicago Restaurant</h2>
@@ -73,7 +97,7 @@ class Product extends React.Component {
                                 <div className="bg-white mb-30">
                                     <div className="p-3 border-bottom gold-members">
                                         <span className="float-right">
-                                            <a href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
+                                            <a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
                                         </span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
@@ -129,7 +153,7 @@ class Product extends React.Component {
                             <div className="col-md-12 px-0 border-top">
                                 <div className="bg-white mb-30">
                                     <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <img src="img/starter1.jpg" alt="" className="mr-3 rounded-pill " />
                                             <div className="media-body">
@@ -151,7 +175,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <img src="img/starter3.jpg" alt="" className="mr-3 rounded-pill " />
                                             <div className="media-body">
@@ -170,7 +194,7 @@ class Product extends React.Component {
                             <div className="col-md-12 px-0 border-top">
                                 <div className="bg-white mb-30">
                                     <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
                                             <div className="media-body">
@@ -191,7 +215,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-success veg">.</div>
                                             <div className="media-body">
@@ -201,7 +225,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-success veg">.</div>
                                             <div className="media-body">
@@ -211,7 +235,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
                                             <div className="media-body">
@@ -221,7 +245,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-success veg">.</div>
                                             <div className="media-body">
@@ -241,7 +265,7 @@ class Product extends React.Component {
                                 <div className="bg-white mb-30">
                                 <div className="p-3 border-bottom gold-members">
                                         <span className="float-right">
-                                            <a href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
+                                            <a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
                                         </span>
                                         <div className="media">
                                             <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
@@ -297,7 +321,7 @@ class Product extends React.Component {
                             <div className="col-md-12 px-0 border-top">
                                 <div className="bg-white mb-30">
                                 <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <img src="img/starter1.jpg" alt="" className="mr-3 rounded-pill " />
                                             <div className="media-body">
@@ -319,7 +343,7 @@ class Product extends React.Component {
                                         </div>
                                     </div>
                                     <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div className="media">
                                             <img src="img/starter3.jpg" alt="" className="mr-3 rounded-pill " />
                                             <div className="media-body">

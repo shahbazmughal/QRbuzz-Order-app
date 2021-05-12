@@ -48,7 +48,7 @@ function Contact()  {
                     </form>
                     <div className="mapouter pt-3">
                             <div className="gmap_canvas">
-                                <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=dugri%20ludhiana&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=hostings%20house&t=&z=16&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                             </div>
                     </div>
                     </div>
