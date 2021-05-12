@@ -72,7 +72,7 @@ function Home(props){
     });
 
     useEffect( ()=>{
-        props.getBranchItems(325)
+        props.getBranchItems(327)
     } , []);
 
     const [state, setState] = React.useState({

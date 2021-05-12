@@ -3,6 +3,7 @@ import './product.css';
 import {connect,useSelector,useDispatch} from 'react-redux';
 import PropTypes from "prop-types";
 import * as mredux from '../_redux/menuRedux';
+import {API_URL} from "../../Constants";
 
 class Product extends Component {
 
@@ -17,10 +18,41 @@ class Product extends Component {
         // Don't call this.setState() here!
         this.state = { 
             counter: 1,
-            counter2:2
+            counter2:2,
+            error: null,
+            isLoaded: false,
+            items: []
+
         };
       }
       
+      componentDidMount() {
+        const fd = new FormData();
+		fd.append("branch_id", 325);
+        fetch(API_URL + 'api/items/getBrnachItems' , {
+			method: "POST",
+			body: fd
+		})
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                items: result.items
+              });
+              console.log(result)
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+      }
 
   render(){
 
@@ -37,6 +69,8 @@ class Product extends Component {
         const gotoContact = () => {
             history.push('contact')
         }
+
+        const { error, isLoaded, items } = this.state;
 
     return(
         <div className="osahan-restaurant">
@@ -92,7 +126,7 @@ class Product extends Component {
                             <a href="#ratings-and-reviews" className="text-decoration-none text-dark mx-2"><i className="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
                             <a href="#ratings-and-reviews" className="text-decoration-none text-dark"><i className="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                         </div>
-                        <a href="#" className="btn btn-sm btn-outline-light ml-auto">Contact</a>
+                        <a href="#" onClick={gotoContact} className="btn btn-sm btn-outline-light ml-auto">Contact</a>
                     </div>
                 </div>
             </div>
