@@ -15,8 +15,11 @@
   "dependencies": {
     "@manaflair/redux-batch": "^1.0.0",
     "@reduxjs/toolkit": "^1.5.1",
+    "axios": "^0.21.1",
     "history": "^4.7.2",
+    "install": "^0.13.0",
     "lodash": "^4.17.10",
+    "npm": "^7.12.1",
     "prop-types": "^15.6.1",
     "react": "^16.4.1",
     "react-app-polyfill": "^2.0.0",
