@@ -12,6 +12,15 @@ class Product extends Component {
         history: PropTypes.object.isRequired
       };
     
+      constructor(props) {
+        super(props);
+        // Don't call this.setState() here!
+        this.state = { 
+            counter: 1,
+            counter2:2
+        };
+      }
+      
 
   render(){
 
@@ -109,11 +118,11 @@ class Product extends Component {
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
                                         <div className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary">
+                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter: this.state.counter-1})}>
                                                 <i className="feather-minus"></i>
                                             </button>
-                                            <input className="count-number-input" type="text" defaultValue="1" />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary">
+                                            <input className="count-number-input" type="text" value={this.state.counter} defaultValue={this.state.counter} />
+                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter: this.state.counter+1})}>
                                                 <i className="feather-plus"></i>
                                             </button>
                                         </div>
@@ -127,11 +136,11 @@ class Product extends Component {
                                     </div>
                                     <div className="p-3 border-bottom gold-members">
                                         <span className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary">
+                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter2: this.state.counter2-1})}>
                                                 <i className="feather-minus"></i>
                                             </button>
-                                            <input className="count-number-input" type="text" defaultValue="2" />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" >
+                                            <input className="count-number-input" type="text" value={this.state.counter2} defaultValue={this.state.counter2} />
+                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter2: this.state.counter2+1})}>
                                                 <i className="feather-plus"></i>
                                             </button>
                                         </span>
