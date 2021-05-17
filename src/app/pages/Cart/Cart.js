@@ -37,8 +37,8 @@ function Cart(){
          </div>
          <div className="p-3 osahan-cart-item">
             <div className="d-flex mb-3 osahan-cart-item-profile bg-white shadow rounded p-3 mt-n5">
-               <img alt="osahan" src="img/starter1.jpg" className="mr-3 rounded-circle img-fluid" />
-               <div className="d-flex flex-column">
+               <img alt="osahan" src="img/starter1.jpg" className="mr-3 rounded-circle img-fluid item-image" />
+               <div className="d-flex flex-column mt-3">
                   <h6 className="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
                   <p className="mb-0 small text-muted"><i className="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY 10029</p>
                </div>

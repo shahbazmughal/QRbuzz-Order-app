@@ -23,7 +23,9 @@ class Product extends Component {
             error: null,
             isLoaded: false,
             items: [],
-            categories:[]
+            categories:[],
+            final_items:[],
+            loader: true
 
         };
       }
@@ -38,9 +40,12 @@ class Product extends Component {
               this.setState({
                 isLoaded: true,
                 items: data.data,
-                categories: data.data.categories
+                categories: data.data.categories,
+                final_items: data.data.final_items,
+                loader:false
               });
               console.log(data.data)
+              document.getElementsByClassName('tab-buttons')[0].firstChild.className = "active"
             },
             (error) => {
               this.setState({
@@ -59,8 +64,14 @@ class Product extends Component {
             history.push('home')
         }
 
-        const goToCart = () => {
-            history.push('cart')
+        const goToCart = (e) => {
+            var id = e.target.dataset.id;
+            history.push({
+                pathname: '/cart',
+                state: {
+                  id: id
+                }
+            });
         }
     
         const gotoContact = () => {
@@ -68,9 +79,15 @@ class Product extends Component {
         }
 
         const { error, isLoaded, items } = this.state;
+        
 
     return(
         <div className="osahan-restaurant">
+            {
+                this.state.loader == true ? 
+                <div className="loading" id="loading"><div className="loader"></div></div>
+                :<span></span>
+            }
             <div className="osahan-restaurant-detail">
                 <div className="recepie-header">
                     <div className="position-absolute px-3 py-4 d-flex align-items-center w-100">
@@ -129,277 +146,33 @@ class Product extends Component {
             </div>
             
             <div className="tabs">
-                {JSON.stringify(this.state.categories)}
-                {this.state.categories.map(option => (
-                    <div>{option.name}</div>
-                ))}
-                <Tabs>
-                    <Tab label="Quick Bites">
-                        <div className="row px-3">
-                            <h6 className="mb-3 mt-4 col-md-12">Quick Bites <small className="text-black-50">3 ITEMS</small></h6>
-                            <div className="col-md-12 px-0 border-top">
-                                <div className="bg-white mb-30">
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right">
-                                            <a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
-                                        </span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
+                <Tabs>  
+                {/* {JSON.stringify(this.state.categories)} */}
+                    {this.state.categories.map(option => (
+                        <Tab key={option.id} id={option.id} label={option.name}>
+                            <div className="row px-3">
+                                <h6 className="mb-3 mt-4 col-md-12">{option.name} <small className="text-black-50">3 ITEMS</small></h6>
+                                <div className="col-md-12 px-0 border-top">
+                                    <div className="bg-white mb-30">
+                                        {this.state.final_items.map(menu => (
+                                            <div key={menu.item.id} className="p-3 border-bottom menu-list">
+                                                <span className="float-right mt-2">
+                                                    <a onClick={goToCart} data-id={menu.item.id} href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
+                                                </span>
+                                                <div className="media">
+                                                    <img src={menu.item.image} alt="" class="mr-3 rounded-pill " />
+                                                    <div className="media-body">
+                                                        <h6 className="mb-1 mt-2">{menu.item.title} </h6>
+                                                        <p className="text-muted mb-0">${menu.item.sale_price}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <div className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter: this.state.counter-1})}>
-                                                <i className="feather-minus"></i>
-                                            </button>
-                                            <input className="count-number-input" type="text" value={this.state.counter} defaultValue={this.state.counter} />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter: this.state.counter+1})}>
-                                                <i className="feather-plus"></i>
-                                            </button>
-                                        </div>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter2: this.state.counter2-1})}>
-                                                <i className="feather-minus"></i>
-                                            </button>
-                                            <input className="count-number-input" type="text" value={this.state.counter2} defaultValue={this.state.counter2} />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => this.setState({...this.state, counter2: this.state.counter2+1})}>
-                                                <i className="feather-plus"></i>
-                                            </button>
-                                        </span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-danger text-white">Non veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </Tab>
-                    <Tab label="Starters">
-                        <div className="row px-3">
-                            <h6 className="mb-3 mt-4 col-md-12">Starters <small className="text-black-50">3 ITEMS</small></h6>
-                            <div className="col-md-12 px-0 border-top">
-                                <div className="bg-white mb-30">
-                                    <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <img src="img/starter1.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom menu-list">
-                                        <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button>
-                                            <input className="count-number-input" type="text" defaultValue="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button>
-                                        </span>
-                                        <div className="media">
-                                            <img src="img/starter2.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <img src="img/starter3.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-success">Pure Veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab label="Soups">
-                        <div className="row px-3">
-                            <h6 className="mb-3 mt-4 col-md-12">Soups <small className="text-black-50">8 ITEMS</small></h6>
-                            <div className="col-md-12 px-0 border-top">
-                                <div className="bg-white mb-30">
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button>
-                                            <input className="count-number-input" type="text" defaultValue="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-success veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-success">Pure Veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-success veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-success veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-success">Pure Veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab label="Drinks">
-                        <div className="row px-3">
-                            <h6 className="mb-3 mt-4 col-md-12">Drinks <small className="text-black-50">6 ITEMS</small></h6>
-                            <div className="col-md-12 px-0 border-top">
-                                <div className="bg-white mb-30">
-                                <div className="p-3 border-bottom gold-members">
-                                        <span className="float-right">
-                                            <a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a>
-                                        </span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <div className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary">
-                                                <i className="feather-minus"></i>
-                                            </button>
-                                            <input className="count-number-input" type="text" defaultValue="1" />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary">
-                                                <i className="feather-plus"></i>
-                                            </button>
-                                        </div>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom gold-members">
-                                        <span className="count-number float-right">
-                                            <button type="button" className="btn-sm left dec btn btn-outline-secondary">
-                                                <i className="feather-minus"></i>
-                                            </button>
-                                            <input className="count-number-input" type="text" defaultValue="2" />
-                                            <button type="button" className="btn-sm right inc btn btn-outline-secondary" >
-                                                <i className="feather-plus"></i>
-                                            </button>
-                                        </span>
-                                        <div className="media">
-                                            <div className="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-danger text-white">Non veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab label="Desserts">
-                        <div className="row px-3">
-                            <h6 className="mb-3 mt-4 col-md-12">Desserts <small className="text-black-50">3 ITEMS</small></h6>
-                            <div className="col-md-12 px-0 border-top">
-                                <div className="bg-white mb-30">
-                                <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <img src="img/starter1.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub </h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom menu-list">
-                                        <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button>
-                                            <input className="count-number-input" type="text" defaultValue="1" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button>
-                                        </span>
-                                        <div className="media">
-                                            <img src="img/starter2.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Cheese corn Roll <span className="badge badge-danger">BEST SELLER</span></h6>
-                                                <p className="text-muted mb-0">$600</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-3 border-bottom menu-list">
-                                        <span className="float-right"><a onClick={goToCart} href="#" className="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                        <div className="media">
-                                            <img src="img/starter3.jpg" alt="" className="mr-3 rounded-pill " />
-                                            <div className="media-body">
-                                                <h6 className="mb-1">Chicken Tikka Sub <span className="badge badge-success">Pure Veg</span></h6>
-                                                <p className="text-muted mb-0">$250</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Tab>
+                        </Tab>
+                    ))}
                 </Tabs>
             </div>
             
@@ -410,7 +183,8 @@ class Product extends Component {
 
 class Tabs extends React.Component{
   state ={
-    activeTab: this.props.children[0].props.label
+    //activeTab: this.props.children[0].props.label
+    activeTab: this.props.children.props
   }
   changeTab = (tab) => {
     this.setState({ activeTab: tab });
@@ -419,6 +193,8 @@ class Tabs extends React.Component{
     
     let content;
     let buttons = [];
+
+    
     return (
       <div>
         {React.Children.map(this.props.children, child =>{
