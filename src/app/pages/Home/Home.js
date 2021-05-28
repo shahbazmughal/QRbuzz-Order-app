@@ -397,7 +397,7 @@ function Home(props){
                     <h5 className="m-0 pt-3">Most sales</h5>
                     <a className="pt-3 font-weight-bold ml-auto" href="#">26 places <i className="feather-chevrons-right"></i></a>
                 </div>
-                <div className="most_sale px-3 pb-3">
+                <div className="most_sale px-3 pb-5 mb-5">
                     <div className="row">
                         <div className="col-12">
                             <div className="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">

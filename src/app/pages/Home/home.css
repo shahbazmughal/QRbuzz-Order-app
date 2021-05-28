@@ -12,11 +12,15 @@
 }
 
 .cat-slider.border-bottom {
-    display: inline-flex;
+    overflow-x: scroll;
+    white-space: nowrap !important;
+    display: flex;
+    width: 100%;
+    height: 105px;
 }
 .cat-slider .cat-item {
     width: 75px;
-    float: left;
+    display: inline-table;
 }
 .trending-slider {
     display: flex;
@@ -78,4 +82,17 @@
 }
 .hc-nav-trigger span::after {
     bottom: -10px;
+}
+.trending-slider {
+    display: flex;
+    overflow-x: scroll;
+}
+.trending-slider .osahan-slider-item {
+    display: inline-table;
+}
+
+.osahan-slider-item .list-card-image a img.item-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
 }
