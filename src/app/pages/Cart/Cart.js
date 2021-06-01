@@ -10,11 +10,12 @@ function Cart(){
     const name = "Cart Page"
 
     const location = useLocation();
-    console.log(id, name)
+    //console.log(id, name)
+    //console.log(location.state.id, location.state.name, location.state.img, location.state.price)
 
     const goHome =()=> {
         history.push("home");
-    } 
+    }
 
    const gotoCheckout =()=> {
       history.push({
@@ -24,10 +25,17 @@ function Cart(){
            name:name
          }
      });
-   } 
+   }
+
+   const [state, setState] = React.useState({
+      data: location.state ? location.state: {}
+    });
 
    const [count, setCount] = useState(1);
    const [count2, setCount2] = useState(2);
+   const [data, setData] = useState(location.state);
+   
+   console.log(data)
   
     return (
         <div className="osahan-checkout">

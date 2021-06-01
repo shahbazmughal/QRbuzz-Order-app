@@ -33,6 +33,16 @@ function Home(props){
         });
     }
 
+    const goToProductNew =()=> {
+        history.push({
+            pathname: '/product-new',
+            state: {
+              id: id,
+              name:name
+            }
+        });
+    }
+
     const goToCart =()=> {
         history.push({
             pathname: '/cart',
@@ -160,7 +170,7 @@ function Home(props){
                 <div className="trending-slider">
                     <div className="osahan-slider-item py-3 px-1">
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                            <div className="list-card-image" onClick={goToProduct}>
+                            <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                                 <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
@@ -170,7 +180,7 @@ function Home(props){
                             </div>
                             <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                <h6 className="mb-1"  onClick={goToProduct}><a href="#" className="text-black">Famous Dave's Bar-B-Que
+                                <h6 className="mb-1"  onClick={goToProductNew}><a href="#" className="text-black">Famous Dave's Bar-B-Que
                                     </a>
                                 </h6>
                                 <p className="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
@@ -184,7 +194,7 @@ function Home(props){
                     </div>
                     <div className="osahan-slider-item py-3 px-1">
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                            <div className="list-card-image" onClick={goToProduct}>
+                            <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                                 <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
@@ -194,7 +204,7 @@ function Home(props){
                             </div>
                             <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">Thai Famous Cuisine</a></h6>
+                                <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">Thai Famous Cuisine</a></h6>
                                 <p className="text-gray mb-3">North Indian • Indian • Pure veg</p>
                                 <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 30–35 min</span> <span className="float-right text-black-50"> $250 FOR TWO</span></p>
                                 </div>
@@ -206,7 +216,7 @@ function Home(props){
                     </div>
                     <div className="osahan-slider-item py-3 px-1">
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                            <div className="list-card-image" onClick={goToProduct}>
+                            <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                                 <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
@@ -216,7 +226,7 @@ function Home(props){
                             </div>
                             <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">The osahan Restaurant
+                                <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">The osahan Restaurant
                                     </a>
                                 </h6>
                                 <p className="text-gray mb-3">North • Hamburgers • Pure veg</p>
@@ -263,13 +273,13 @@ function Home(props){
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                                 <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                                    <a href="#" onClick={goToProduct}>
+                                    <a href="#" onClick={goToProductNew}>
                                         <img src="img/popular1.png" className="img-fluid item-img w-100" />
                                     </a>
                                 </div>
                                 <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                    <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">The osahan Restaurant
+                                    <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">The osahan Restaurant
                                         </a>
                                     </h6>
                                     <p className="text-gray mb-1 small">• North • Hamburgers</p>
@@ -297,13 +307,13 @@ function Home(props){
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                                 <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                                <a href="#" onClick={goToProduct}>
+                                <a href="#" onClick={goToProductNew}>
                                 <img src="img/popular2.png" className="img-fluid item-img w-100" />
                                 </a>
                                 </div>
                                 <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                    <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">Thai Famous Indian Cuisine</a></h6>
+                                    <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">Thai Famous Indian Cuisine</a></h6>
                                     <p className="text-gray mb-1 small">• Indian • Pure veg</p>
                                     <p className="text-gray mb-1 rating">
                                     <ul className="rating-stars list-unstyled">
@@ -331,13 +341,13 @@ function Home(props){
                             <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                             <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                             <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                            <a href="#" onClick={goToProduct}>
+                            <a href="#" onClick={goToProductNew}>
                             <img src="img/popular3.png" className="img-fluid item-img w-100" />
                             </a>
                             </div>
                             <div className="p-3 position-relative">
                             <div className="list-card-body">
-                                <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">The osahan Restaurant
+                                <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">The osahan Restaurant
                                     </a>
                                 </h6>
                                 <p className="text-gray mb-1 small">• Hamburgers • Pure veg</p>
@@ -365,13 +375,13 @@ function Home(props){
                             <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
                             <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                             <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                            <a href="#" onClick={goToProduct}>
+                            <a href="#" onClick={goToProductNew}>
                             <img src="img/popular4.png" className="img-fluid item-img w-100" />
                             </a>
                             </div>
                             <div className="p-3 position-relative">
                             <div className="list-card-body">
-                                <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">Bite Me Now Sandwiches</a></h6>
+                                <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">Bite Me Now Sandwiches</a></h6>
                                 <p className="text-gray mb-1 small">American • Pure veg</p>
                                 <p className="text-gray mb-1 rating">
                                 <ul className="rating-stars list-unstyled">
