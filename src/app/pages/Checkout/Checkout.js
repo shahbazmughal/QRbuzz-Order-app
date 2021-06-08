@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import {connect,useSelector,useDispatch} from 'react-redux';
 import './Checkout.css';
@@ -25,6 +25,14 @@ function Checkout(){
     const goBack =()=> {
         history.push("/cart");
     } 
+
+    const [state, setState] = React.useState({
+        data: location.state ? location.state: {}
+    });
+
+    const [data, setData] = useState(location.state);
+
+    console.log(data)
   
     return (
         <div className="osahan-payment">
@@ -147,7 +155,7 @@ function Checkout(){
                 </div>
                 </div>
             </div>
-            <div className="fixed-bottom"><a className="btn btn-success btn-lg btn-block" href="#" onClick={goToComplete}>PAY $1329<i className="feather-arrow-right"></i></a></div>
+            <div className="fixed-bottom"><a className="btn btn-success btn-lg btn-block" href="#" onClick={goToComplete}>PAY {data ? data.price : 150} <i className="feather-arrow-right"></i></a></div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">

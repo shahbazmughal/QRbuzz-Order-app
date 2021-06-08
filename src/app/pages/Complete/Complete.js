@@ -24,7 +24,7 @@ function Complete(){
 
     const goToProduct =()=> {
         history.push({
-            pathname: '/product',
+            pathname: '/product-new',
             state: {
               id: id,
               name:name
@@ -112,16 +112,16 @@ function Complete(){
                 <div className="bg-white rounded shadow mt-n5">
                 <div className="d-flex align-items-center border-bottom p-3">
                     <div className="left mr-3">
-                        <img src="img/user1.jpg" className="rounded-circle profile-image" />
+                        <img src="img/wasif.jpg" className="rounded-circle profile-image" />
                     </div>
                     <div className="right">
-                        <h6 className="mb-1 font-weight-bold">Gurdeep Singh <i className="feather-check-circle text-success"></i></h6>
-                        <p className="text-muted m-0 small">iamosahan@gmail.com</p>
+                        <h6 className="mb-1 font-weight-bold">Wasif Ahmed <i className="feather-check-circle text-success"></i></h6>
+                        <p className="text-muted m-0 small">wasif.ahmed@gmail.com</p>
                     </div>
                 </div>
                 <div className="osahan-credits d-flex align-items-center p-3">
                     <p className="m-0">Accounts Credits</p>
-                    <h5 className="m-0 ml-auto text-primary">$52.25</h5>
+                    <h5 className="m-0 ml-auto text-success">Rs: 4200/-</h5>
                 </div>
                 </div>
                 <div className="bg-white rounded shadow mt-3 profile-details">
@@ -146,7 +146,7 @@ function Complete(){
                 <div className="d-flex align-items-center border-bottom p-3">
                     <div className="left mr-3">
                         <h6 className="font-weight-bold mb-1">Refer Friends</h6>
-                        <p className="small text-primary m-0">Get $10.00 FREE</p>
+                        <p className="small text-primary m-0">Get 100/- FREE</p>
                     </div>
                     <div className="right ml-auto">
                         <h6 className="font-weight-bold m-0"><i className="feather-chevron-right"></i></h6>
@@ -201,7 +201,7 @@ function Complete(){
                         </a>
                     </div>
                     <div className="col bg-white rounded-circle mt-n4 px-3 py-2">
-                        <div className="bg-danger rounded-circle mt-n0 shadow">
+                        <div className="bg-success rounded-circle mt-n0 shadow">
                             <a onClick={goToCart} href="#" className="text-white small font-weight-bold text-decoration-none">
                             <i className="feather-shopping-cart"></i>
                             </a>
@@ -214,8 +214,8 @@ function Complete(){
                         </a>
                     </div>
                     <div className="col selected">
-                        <a onClick={goToThanks} href="#" className="text-danger small font-weight-bold text-decoration-none">
-                            <p className="h4 m-0"><i className="feather-user text-danger"></i></p>
+                        <a onClick={goToThanks} href="#" className="text-success small font-weight-bold text-decoration-none">
+                            <p className="h4 m-0"><i className="feather-user text-success"></i></p>
                             Finish
                         </a>
                     </div>    

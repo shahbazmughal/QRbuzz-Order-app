@@ -96,3 +96,14 @@
     height: 140px;
     object-fit: cover;
 }
+.bg-primary {
+    background: #15a537;
+    background: -moz-linear-gradient(45deg, #15a537 0%, #15a537 100%);
+    background: -webkit-linear-gradient(45deg, #15a537 0%, #15a537 100%);
+    background: linear-gradient(45deg, #15a537 0%, #15a537 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d92662', endColorstr='#e23744', GradientType=1);
+}
+a {
+    color: #15a537;
+    text-decoration: none !important;
+}

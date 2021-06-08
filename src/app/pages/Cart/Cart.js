@@ -17,25 +17,31 @@ function Cart(){
         history.push("home");
     }
 
-   const gotoCheckout =()=> {
+   const gotoCheckout =(e)=> {
+      var iid = e.target.dataset.id;
+      var price = e.target.dataset.price;
+      var name = e.target.dataset.name;
       history.push({
          pathname: '/checkout',
          state: {
-           id: id,
-           name:name
+           id: iid,
+           name: name,
+           price:price
          }
      });
    }
 
    const [state, setState] = React.useState({
-      data: location.state ? location.state: {}
+      data: location.state ? location.state: {},
+      dlv: 10,
+      dlv_charges: location.state ? location.state.price + 10 : "160"
     });
 
    const [count, setCount] = useState(1);
    const [count2, setCount2] = useState(2);
    const [data, setData] = useState(location.state);
    
-   console.log(data)
+   console.log(state.data)
   
     return (
         <div className="osahan-checkout">
@@ -45,9 +51,9 @@ function Cart(){
          </div>
          <div className="p-3 osahan-cart-item">
             <div className="d-flex mb-3 osahan-cart-item-profile bg-white shadow rounded p-3 mt-n5">
-               <img alt="osahan" src="img/starter1.jpg" className="mr-3 rounded-circle img-fluid item-image" />
+               <img alt="osahan" src={data ? data.img : "img/starter1.jpg"} className="mr-3 rounded-circle img-fluid item-image" />
                <div className="d-flex flex-column mt-3">
-                  <h6 className="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
+                  <h6 className="mb-1 font-weight-bold">{data ? data.name  : "Spice Hut Indian Restaurant"}</h6>
                   <p className="mb-0 small text-muted"><i className="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY 10029</p>
                </div>
             </div>
@@ -69,7 +75,7 @@ function Cart(){
                         <i className="feather-plus"></i> 
                      </button>
                      </span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -90,7 +96,7 @@ function Cart(){
                         <i className="feather-plus"></i> 
                      </button>
                   </span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -103,7 +109,7 @@ function Cart(){
                   </div>
                   <div className="d-flex align-items-center">
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -116,7 +122,7 @@ function Cart(){
                   </div>
                   <div className="d-flex align-items-center">
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -128,7 +134,7 @@ function Cart(){
                   </div>
                   <div className="d-flex align-items-center">
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -141,7 +147,7 @@ function Cart(){
                   </div>
                   <div className="d-flex align-items-center">
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2">
@@ -154,14 +160,14 @@ function Cart(){
                   </div>
                   <div className="d-flex align-items-center">
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
             </div>
             <div className="mb-3 shadow bg-white rounded p-3 py-3 mt-3 clearfix">
                <div className="input-group-sm mb-2 input-group">
                   <input placeholder="Enter promo code" type="text" className="form-control" />
-                  <div className="input-group-append"><button id="button-addon2" type="button" className="btn btn-primary"><i className="feather-percent"></i> APPLY</button></div>
+                  <div className="input-group-append"><button id="button-addon2" type="button" className="btn btn-success">APPLY</button></div>
                </div>
                <div className="mb-0 input-group">
                   <div className="input-group-prepend"><span className="input-group-text"><i className="feather-message-square"></i></span></div>
@@ -169,14 +175,14 @@ function Cart(){
                </div>
             </div>
             <div className="shadow bg-white rounded p-3 clearfix">
-               <p className="mb-1">Item Total <span className="float-right text-dark">$3140</span></p>
-               <p className="mb-1">Restaurant Charges <span className="float-right text-dark">$62.8</span></p>
-               <p className="mb-1">Delivery Fee<span className="text-info ml-1"><i className="icofont-info-circle"></i></span><span className="float-right text-dark">$10</span></p>
-               <p className="mb-1 text-success">Total Discount<span className="float-right text-success">$1884</span></p>
+               <p className="mb-1">Item Total <span className="float-right text-dark">{data ? data.price : "150"}</span></p>
+               <p className="mb-1">Restaurant Charges <span className="float-right text-dark">0</span></p>
+               <p className="mb-1">Delivery Fee<span className="text-info ml-1"><i className="icofont-info-circle"></i></span><span className="float-right text-dark">0</span></p>
+               <p className="mb-1 text-success">Total Discount<span className="float-right text-success">{data ? data.price : "150"}</span></p>
                <hr />
-               <h6 className="font-weight-bold mb-0">TO PAY  <span className="float-right">$1329</span></h6>
+               <h6 className="font-weight-bold mb-0">TO PAY  <span className="float-right">Rs: {data ? data.price : "150"}</span></h6>
             </div>
-            <a className="btn btn-success btn-block btn-lg fixed-bottom" href="#" onClick={gotoCheckout}>PAY $1329<i className="icofont-long-arrow-right"></i></a>
+            <a className="btn btn-success btn-block btn-lg fixed-bottom" href="#" data-id={data ? data.id : 0} data-name={data ? data.name : ""} data-price={data ? data.price : 0} onClick={gotoCheckout}>PAY {data ? data.price : "150"}/- <i className="icofont-long-arrow-right"></i></a>
          </div>
       </div>
     )

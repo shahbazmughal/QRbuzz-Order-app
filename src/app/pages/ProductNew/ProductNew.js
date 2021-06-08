@@ -101,7 +101,7 @@ function ProductNew(props) {
               <p className="m-0 ml-auto"><a href="restaurant.html#ratings-and-reviews"><i className="feather-star shadow bg-light text-danger rounded-circle p-2"></i></a></p>
             </div>
           </div>
-          <img src="img/trending1.png" className="img-fluid w-100" alt="Responsive image" />
+          <img src="img/mega-foods.jpg" className="img-fluid w-100" alt="Responsive image" />
         </div>
         <div className="p-3">
           <div className="forgot-page">
@@ -109,9 +109,9 @@ function ProductNew(props) {
             <a className="text-primary font-weight-bold" href="#" onClick={goToHome}><i className="feather-chevron-left"></i> Back</a>
           </div>
           <div className="pt-3">
-            <h2 className="font-weight-bold">Conrad Chicago Restaurant</h2>
-            <p className="font-weight-light text-dark m-0">963 Madyson Drive Suite 679</p>
-            <div className="rating-wrap d-flex align-items-center mt-2">
+            <h2 className="font-weight-bold">Mega Foods ltd</h2>
+            <p className="font-weight-light text-dark m-0">171 B-1 Johar Town Lahore PK</p>
+            <div className="rating-wrap d-flex align-items-center mt-2 mb">
               <ul className="rating-stars list-unstyled">
                 <li>
                   <i className="feather-star text-warning"></i>
@@ -132,7 +132,7 @@ function ProductNew(props) {
               </div>
               <div className="col-6">
                 <p className="font-weight-bold m-0">Open time</p>
-                <p className="text-muted m-0">8:00 AM</p>
+                <p className="text-muted m-0">11:00 AM to 10:00PM</p>
               </div>
             </div>
           </div>
@@ -165,18 +165,18 @@ function ProductNew(props) {
                         {branchItems.final_items.filter(i => i.item.category_id === option.id).map(product => {
                           return(
                             <div className="p-3 border-bottom menu-list" key={product.item.id}>
-                              <span className="float-right">
+                              <span className="float-right pt-2">
                                 <a 
                                   onClick={goToCart} 
                                   href="#" 
-                                  className="btn btn-outline-secondary btn-sm"
+                                  className="btn btn-outline-success btn-sm"
                                   data-id={product.item.id}
                                   data-title={product.item.title}
                                   data-img={product.item.image}
                                   data-cprice={product.item.cost_price}
                                   data-sprice={product.item.sale_price}
                                 >
-                                  ADD
+                                  Add to Cart
                                 </a>
                               </span>
                               <div className="media">
@@ -188,7 +188,7 @@ function ProductNew(props) {
                                 
                                 <div className="media-body">
                                   <h6 className="mb-1">{product.item.title} </h6>
-                                  <p className="text-muted mb-0">${product.item.sale_price}</p>
+                                  <p className="text-muted mb-0">Rs. {product.item.sale_price}</p>
                                 </div>
                               </div>
                             </div>

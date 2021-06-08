@@ -2,7 +2,7 @@
   "name": "pwa-theme-woocommerce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pwa.shahbaz.hostingshouse.com/",
+  "homepage": "https://pwa.shahbaz.dev.jt.hostingshouse.com/",
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",

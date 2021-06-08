@@ -164,7 +164,7 @@ function Home(props){
                     </div>
                 </div>
                 <div className="px-3 pt-3 title d-flex align-items-center">
-                    <h5 className="m-0">Trending this week</h5>
+                    <h5 className="m-0 block-title">Trending this week</h5>
                     <a className="font-weight-bold ml-auto" href="#">View all <i className="feather-chevrons-right"></i></a>
                 </div>
                 <div className="trending-slider">
@@ -172,7 +172,7 @@ function Home(props){
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                                 <a href="#">
                                 <img src="img/trending1.png" className="img-fluid item-img w-100" />
@@ -187,7 +187,7 @@ function Home(props){
                                 <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 15–30 min</span> <span className="float-right text-black-50"> $350 FOR TWO</span></p>
                                 </div>
                                 <div className="list-card-badge">
-                                <span className="badge badge-danger">OFFER</span> <small> Use Coupon OSAHAN50</small>
+                                <span className="badge badge-success">OFFER</span> <small> Use Coupon OSAHAN50</small>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ function Home(props){
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                                 <a href="#">
                                 <img src="img/trending2.png" className="img-fluid item-img w-100" />
@@ -218,7 +218,7 @@ function Home(props){
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div className="list-card-image" onClick={goToProductNew}>
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                                 <a href="#">
                                 <img src="img/trending3.png" className="img-fluid item-img w-100" />
@@ -233,7 +233,7 @@ function Home(props){
                                 <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 15–25 min</span> <span className="float-right text-black-50"> $500 FOR TWO</span></p>
                                 </div>
                                 <div className="list-card-badge">
-                                <span className="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
+                                <span className="badge badge-success">OFFER</span> <small>65% OSAHAN50</small>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,7 @@ function Home(props){
                 </div>
                 </div>
                 <div className="px-3 pb-3 title d-flex align-items-center">
-                    <h5 className="m-0 pt-3">Most popular</h5>
+                    <h5 className="m-0 pt-3 block-title">Most popular</h5>
                     <a className="pt-3 font-weight-bold ml-auto" href="#">26 places <i className="feather-chevrons-right"></i></a>
                 </div>
                 <div className="most_popular px-3">
@@ -271,7 +271,7 @@ function Home(props){
                             <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                 <div className="list-card-image">
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                                     <a href="#" onClick={goToProductNew}>
                                         <img src="img/popular1.png" className="img-fluid item-img w-100" />
@@ -296,7 +296,7 @@ function Home(props){
                                     </p>
                                 </div>
                                 <div className="list-card-badge">
-                                    <span className="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
+                                    <span className="badge badge-success">OFFER</span> <small>65% OSAHAN50</small>
                                 </div>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@ function Home(props){
                             <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                 <div className="list-card-image">
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                                 <a href="#" onClick={goToProductNew}>
                                 <img src="img/popular2.png" className="img-fluid item-img w-100" />
@@ -339,7 +339,7 @@ function Home(props){
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div className="list-card-image">
                             <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                            <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                            <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                             <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                             <a href="#" onClick={goToProductNew}>
                             <img src="img/popular3.png" className="img-fluid item-img w-100" />
@@ -364,7 +364,7 @@ function Home(props){
                                 </p>
                             </div>
                             <div className="list-card-badge">
-                                <span className="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
+                                <span className="badge badge-success">OFFER</span> <small>65% OSAHAN50</small>
                             </div>
                             </div>
                         </div>
@@ -373,7 +373,7 @@ function Home(props){
                         <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div className="list-card-image">
                             <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                            <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                            <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                             <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
                             <a href="#" onClick={goToProductNew}>
                             <img src="img/popular4.png" className="img-fluid item-img w-100" />
@@ -404,7 +404,7 @@ function Home(props){
                 </div>
                 </div>
                 <div className="p-3 title d-flex align-items-center">
-                    <h5 className="m-0 pt-3">Most sales</h5>
+                    <h5 className="m-0 pt-3 block-title">Most sales</h5>
                     <a className="pt-3 font-weight-bold ml-auto" href="#">26 places <i className="feather-chevrons-right"></i></a>
                 </div>
                 <div className="most_sale px-3 pb-5 mb-5">
@@ -413,22 +413,22 @@ function Home(props){
                             <div className="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                 <div className="list-card-image">
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                                <a href="#" onClick={goToProduct}>
+                                <a href="#" onClick={goToProductNew}>
                                 <img src="img/sales1.png" className="img-fluid item-img w-100" />
                                 </a>
                                 </div>
                                 <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                    <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">The osahan Restaurant
+                                    <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">The osahan Restaurant
                                         </a>
                                     </h6>
                                     <p className="text-gray mb-3">North • Hamburgers • Pure veg</p>
                                     <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 15–25 min</span> <span className="float-right text-black-50"> $500 FOR TWO</span></p>
                                 </div>
                                 <div className="list-card-badge">
-                                    <span className="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
+                                    <span className="badge badge-success">OFFER</span> <small>65% OSAHAN50</small>
                                 </div>
                                 </div>
                             </div>
@@ -437,15 +437,15 @@ function Home(props){
                             <div className="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                 <div className="list-card-image">
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                                <a href="#" onClick={goToProduct}>
+                                <a href="#" onClick={goToProductNew}>
                                 <img src="img/sales2.png" className="img-fluid item-img w-100" />
                                 </a>
                                 </div>
                                 <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                    <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">Thai Famous Cuisine</a></h6>
+                                    <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">Thai Famous Cuisine</a></h6>
                                     <p className="text-gray mb-3">North Indian • Indian • Pure veg</p>
                                     <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 30–35 min</span> <span className="float-right text-black-50"> $250 FOR TWO</span></p>
                                 </div>
@@ -459,22 +459,22 @@ function Home(props){
                             <div className="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                 <div className="list-card-image">
                                 <div className="star position-absolute"><span className="badge badge-success"><i className="feather-star"></i> 3.1 (300+)</span></div>
-                                <div className="favourite-heart text-danger position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
+                                <div className="favourite-heart text-success position-absolute"><a href="#"><i className="feather-heart"></i></a></div>
                                 <div className="member-plan position-absolute"><span className="badge badge-dark">Promoted</span></div>
-                                <a href="#" onClick={goToProduct}>
+                                <a href="#" onClick={goToProductNew}>
                                 <img src="img/sales3.png" className="img-fluid item-img w-100" />
                                 </a>
                                 </div>
                                 <div className="p-3 position-relative">
                                 <div className="list-card-body">
-                                    <h6 className="mb-1" onClick={goToProduct}><a href="#" className="text-black">The osahan Restaurant
+                                    <h6 className="mb-1" onClick={goToProductNew}><a href="#" className="text-black">The osahan Restaurant
                                         </a>
                                     </h6>
                                     <p className="text-gray mb-3">North • Hamburgers • Pure veg</p>
                                     <p className="text-gray mb-3 time"><span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i className="feather-clock"></i> 15–25 min</span> <span className="float-right text-black-50"> $500 FOR TWO</span></p>
                                 </div>
                                 <div className="list-card-badge">
-                                    <span className="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
+                                    <span className="badge badge-success">OFFER</span> <small>65% OSAHAN50</small>
                                 </div>
                                 </div>
                             </div>
@@ -485,19 +485,19 @@ function Home(props){
                 <div className="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center">
                     <div className="row">
                         <div className="col selected">
-                            <a onClick={goToHome} href="#" className="text-danger small font-weight-bold text-decoration-none">
-                                <p className="h4 m-0"><i className="feather-home text-danger"></i></p>
+                            <a onClick={goToHome} href="#" className="text-success small font-weight-bold text-decoration-none">
+                                <p className="h4 m-0"><i className="feather-home text-success"></i></p>
                                 Menu
                             </a>
                         </div>
                         <div className="col">
-                            <a onClick={goToProduct} href="#" className="text-dark small font-weight-bold text-decoration-none">
+                            <a onClick={goToProductNew} href="#" className="text-dark small font-weight-bold text-decoration-none">
                                 <p className="h4 m-0"><i className="feather-map-pin"></i></p>
                                 Product
                             </a>
                         </div>
                         <div className="col bg-white rounded-circle mt-n4 px-3 py-2">
-                            <div className="bg-danger rounded-circle mt-n0 shadow">
+                            <div className="bg-success rounded-circle mt-n0 shadow">
                                 <a onClick={goToCart} href="#" className="text-white small font-weight-bold text-decoration-none">
                                 <i className="feather-shopping-cart"></i>
                                 </a>
