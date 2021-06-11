@@ -20,6 +20,7 @@
 }
 .cat-slider .cat-item {
     width: 75px;
+    height: 75px;
     display: inline-table;
 }
 .trending-slider {

@@ -13,4 +13,10 @@
 input.count-number-input {
     pointer-events: none;
 }
-.item-image{width: 60px; height: auto;}
+.item-image{width: 100px; height: 100px;}
+p.addon-price {
+    min-width: 20px;
+}
+.bg-white>div>.gold-members:last-child {
+    border-bottom: 0 !important;
+}

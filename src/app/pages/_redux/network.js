@@ -25,7 +25,7 @@ export async function getBusinesses(user_id) {
 }
 
 export async function getBranchItems(id) {
-  console.log(id)
+  //console.log(id)
   try {
     const response = await fetch(getBranchItemsApi,{
       method:"POST",
@@ -35,7 +35,7 @@ export async function getBranchItems(id) {
       body: JSON.stringify({branch_id:id})
     });
     const data = await response.json()
-    console.log(data);
+    //console.log(data);
     return ({status: response.status, body:data})
     
   } catch (error) {

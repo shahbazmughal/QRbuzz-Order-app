@@ -25,7 +25,7 @@ export const mreducer = persistReducer(
       
       case actionTypes.SetBusinesses: { 
         const { businesses } = action.payload;
-        console.log(businesses);
+        //console.log(businesses);
         return { ...state, all_businesses:businesses  };
       }
       
@@ -62,10 +62,10 @@ export function* mSaga(){
   });
 
   yield takeLatest(actionTypes.GetBranchItems,  function* getBranchItemsSaga(action) {
-    console.log(action.payload)
+    //console.log(action.payload)
     try {
         const data = yield call(getBranchItems,action.payload)
-        console.log(data)
+        //console.log(data)
         yield put(actions.setBranchItems(data.body))
     } catch (error) {
         //fire appropriate action in case of error 

@@ -26,7 +26,9 @@ function Cart(){
          state: {
            id: iid,
            name: name,
-           price:price
+           price:price,
+           addons: state.data.addons ? state.data.addons : {},
+           attributes: state.data.addons ? state.data.addons : {}
          }
      });
    }
@@ -37,11 +39,24 @@ function Cart(){
       dlv_charges: location.state ? location.state.price + 10 : "160"
     });
 
+    const [values, setValues] = React.useState({
+      data: location.state ? location.state: {},
+      dlv: 10,
+      dlv_charges: location.state ? location.state.price + 10 : "160"
+    });
+
    const [count, setCount] = useState(1);
    const [count2, setCount2] = useState(2);
    const [data, setData] = useState(location.state);
+   const [addons, setAddons] = useState(data ? JSON.parse(data.addons) : "");
+
+   const handleChange = name => event => {
+      setState({ ...state, [name]: event.target.value });
+      setValues({ ...values, [name]: event.target.value });
+   }; 
    
-   console.log(state.data)
+   //console.log(state.data)
+   //console.log(data ? JSON.parse(data.addons) : "")
   
     return (
         <div className="osahan-checkout">
@@ -51,14 +66,54 @@ function Cart(){
          </div>
          <div className="p-3 osahan-cart-item">
             <div className="d-flex mb-3 osahan-cart-item-profile bg-white shadow rounded p-3 mt-n5">
-               <img alt="osahan" src={data ? data.img : "img/starter1.jpg"} className="mr-3 rounded-circle img-fluid item-image" />
+               <img alt="osahan" src={data ? data.img : "img/starter1.jpg"} className="mr-3 img-fluid item-image" />
                <div className="d-flex flex-column mt-3">
                   <h6 className="mb-1 font-weight-bold">{data ? data.name  : "Spice Hut Indian Restaurant"}</h6>
-                  <p className="mb-0 small text-muted"><i className="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY 10029</p>
+                  <p className="mb-0 small text-muted">{data ? data.desc : ""}</p>
                </div>
             </div>
             <div className="bg-white rounded shadow mb-3 py-2">
-               <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+               {  addons ? 
+                  addons.map(option => {
+                     return(
+                        <div key={option.id}>
+                           {option.addons.map(addon => {
+                              return(
+                                 <div key={addon.id} className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+                                    <div className="media align-items-center">
+                                       <div className="mr-2 text-success">&middot;</div>
+                                       <div className="media-body">
+                                          <p className="m-0">{addon.name}</p>
+                                       </div>
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                       <span className="count-number float-right">
+                                          <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => setCount(count-1)}> 
+                                             <i className="feather-minus"></i> 
+                                          </button>
+                                          <input className="count-number-input" name="addons" type="text" defaultValue={count} onChange={handleChange("addons")} />
+                                          <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => setCount(count+1)}> 
+                                             <i className="feather-plus"></i> 
+                                          </button>
+                                       </span>
+                                       <p className="text-gray mb-0 float-right ml-2 text-muted small addon-price">{addon.price}</p>
+                                    </div>
+                                 </div>
+                              )
+                           })}
+                        </div>
+                     )
+                  })
+                  : <div key="1" className="gold-members d-flex align-items-center justify-content-between px-3 py-2">
+                       <div className="media align-items-center">
+                           <div className="mr-2 text-success">&middot;</div>
+                           <div className="media-body">
+                              <p className="m-0">No Addon</p>
+                           </div>
+                        </div>
+                     </div>
+               }
+               {/* <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
                   <div className="media align-items-center">
                      <div className="mr-2 text-danger">&middot;</div>
                      <div className="media-body">
@@ -66,16 +121,16 @@ function Cart(){
                      </div>
                   </div>
                   <div className="d-flex align-items-center">
-                  <span className="count-number float-right">
-                     <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => setCount(count-1)}> 
-                        <i className="feather-minus"></i> 
-                     </button>
-                     <input className="count-number-input" type="text" value={count} />
-                     <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => setCount(count+1)}> 
-                        <i className="feather-plus"></i> 
-                     </button>
+                     <span className="count-number float-right">
+                        <button type="button" className="btn-sm left dec btn btn-outline-secondary" onClick={() => setCount(count-1)}> 
+                           <i className="feather-minus"></i> 
+                        </button>
+                        <input className="count-number-input" type="text" value={count} />
+                        <button type="button" className="btn-sm right inc btn btn-outline-secondary" onClick={() => setCount(count+1)}> 
+                           <i className="feather-plus"></i> 
+                        </button>
                      </span>
-                  <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
+                     <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
                </div>
                <div className="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
@@ -162,7 +217,7 @@ function Cart(){
                   <span className="count-number float-right"><button type="button" className="btn-sm left dec btn btn-outline-secondary"> <i className="feather-minus"></i> </button><input className="count-number-input" type="text" value="2" /><button type="button" className="btn-sm right inc btn btn-outline-secondary"> <i className="feather-plus"></i> </button></span>
                   <p className="text-gray mb-0 float-right ml-2 text-muted small">628</p>
                   </div>
-               </div>
+               </div> */}
             </div>
             <div className="mb-3 shadow bg-white rounded p-3 py-3 mt-3 clearfix">
                <div className="input-group-sm mb-2 input-group">

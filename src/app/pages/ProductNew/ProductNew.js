@@ -29,14 +29,20 @@ function ProductNew(props) {
     var iname = e.target.dataset.title;
     var iimg = e.target.dataset.img;
     var iprice = e.target.dataset.sprice;
-    console.log(iid, iname, iimg, iprice);
+    var addons = e.target.dataset.addons;
+    var attributes = e.target.dataset.attributes;
+    var desc = e.target.dataset.desc;
+    //ssconsole.log(iid, iname, iimg, iprice);
     history.push({
       pathname: '/cart',
       state: {
         id: iid,
         name: iname,
         img:iimg,
-        price:iprice
+        price:iprice,
+        addons:addons,
+        attributes:attributes,
+        desc: desc
       }
     });
   }
@@ -175,6 +181,9 @@ function ProductNew(props) {
                                   data-img={product.item.image}
                                   data-cprice={product.item.cost_price}
                                   data-sprice={product.item.sale_price}
+                                  data-addons={JSON.stringify(product.addons_sets)}
+                                  data-attributes={JSON.stringify(product.attribnute_sets)}
+                                  data-desc={product.item.description}
                                 >
                                   Add to Cart
                                 </a>
