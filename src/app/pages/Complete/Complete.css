@@ -10,7 +10,37 @@
     padding: 100px 0 20px 0;
     line-height: 1.8;
 }
+
+.text-link {
+    cursor: pointer;
+}
 input.count-number-input {
     pointer-events: none;
 }
 .profile-image{width: 60px; height: 60px;}
+
+a {
+    color: #006262;
+    text-decoration: none !important;
+}
+.bg-primary {
+    background: #006262 !important;
+}
+.text-success {
+    color: #006262!important;
+}
+.text-primary {
+  color: #2196f3 !important;
+  text-decoration: none !important;
+}
+.btn-success {
+    color: #fff;
+    background-color: #006262;
+    border-color: #006262;
+}
+.bg-success {
+    background-color: #006262!important;
+}
+a.text-success:focus, a.text-success:hover {
+    color: #006262!important;
+}
